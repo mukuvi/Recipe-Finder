@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder | Discover Delicious Meals</title>
+    <meta name="description" content="Search thousands of recipes for free!" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-white shadow-sm relative z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <a href="index.html" class="flex items-center space-x-2">
+            <i class="fas fa-utensils text-2xl text-indigo-600"></i>
+            <h1 class="text-2xl font-bold text-indigo-700">RecipeFinder</h1>
+          </a>
+        </div>
+
+        <nav class="hidden md:block">
+          <ul class="flex space-x-6">
+            <li>
+              <a
+                href="index.html"
+                class="text-gray-700 hover:text-indigo-600 transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="categories.html"
+                class="text-gray-700 hover:text-indigo-600 transition"
+                >Categories</a
+              >
+            </li>
+            <li>
+              <a
+                href="about.html"
+                class="text-gray-700 hover:text-indigo-600 transition"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button
+          id="mobileMenuButton"
+          class="md:hidden text-gray-700 focus:outline-none"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden bg-white shadow-lg absolute top-full right-4 w-48 rounded-md z-50"
+      >
+        <ul class="py-2">
+          <li>
+            <a
+              href="index.html"
+              class="block px-4 py-2 hover:bg-gray-100 transition"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="categories.html"
+              class="block px-4 py-2 hover:bg-gray-100 transition"
+              >Categories</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="block px-4 py-2 hover:bg-gray-100 transition"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <!-- Hero Section -->
+      <section class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">
+          Discover Amazing Recipes
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          Search from thousands of recipes to find your next favorite meal!
+        </p>
+
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto">
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Try 'pasta', 'chicken', or 'dessert'..."
+              class="flex-grow px-5 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+            />
+            <button
+              id="searchBtn"
+              class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition flex items-center justify-center gap-2"
+            >
+              <i class="fas fa-search"></i> Search
+            </button>
+            <button
+              id="randomBtn"
+              class="bg-gray-200 text-gray-800 px-4 py-3 rounded-lg hover:bg-gray-300 transition flex items-center justify-center gap-2"
+            >
+              <i class="fas fa-random"></i> Surprise Me
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section>
+        <div id="loading" class="text-center py-12 hidden">
+          <i class="fas fa-spinner fa-spin text-4xl text-indigo-600 mb-4"></i>
+          <p class="text-gray-600">Finding delicious recipes...</p>
+        </div>
+
+        <div
+          id="results"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Initial placeholder or popular recipes -->
+          <div class="bg-white p-6 rounded-xl shadow-md text-center fade-in">
+            <i class="fas fa-utensils text-5xl text-indigo-500 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Search for Recipes</h3>
+            <p class="text-gray-600">
+              Try searching for your favorite dishes to get started!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">RecipeFinder</h3>
+            <p class="text-gray-400">
+              Discover and share delicious recipes from around the world.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="categories.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >Categories</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-400 hover:text-white transition"
+                  >About Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition text-xl"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition text-xl"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition text-xl"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400"
+        >
+          <p>&copy; 2025 RecipeFinder. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
