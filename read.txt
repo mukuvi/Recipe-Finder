@@ -1,0 +1,18 @@
+📖 RecipeFinder Documentation
+RecipeFinder is a modern, responsive web application designed to help users discover delicious recipes from around the world. It leverages TheMealDB API to fetch and display recipes, including detailed ingredients, preparation instructions, and video tutorials. The goal of the application is to provide an intuitive, enjoyable experience for home cooks and food lovers to explore meals by keyword search, random selection, or category browsing.
+
+The homepage (index.html) is the core of the app, featuring a search bar where users can type in keywords such as "pasta", "chicken", or "dessert" to retrieve matching meals. Users also have the option to click on a "Surprise Me" button, which fetches a random recipe. Each search or random result is displayed in a grid layout showing the meal’s image, name, category, and area of origin. Users can click “View Recipe” to see detailed cooking instructions, a full list of ingredients, and an embedded YouTube video tutorial if available.
+
+RecipeFinder includes a categories page (categories.html) that dynamically loads and displays all available meal categories from the API. Each category is represented by an image and title. While clicking a category currently shows an alert, the feature can be extended to display all meals under the selected category.
+
+The about page (about.html) introduces users to the mission of RecipeFinder, which is to make cooking fun and accessible for everyone—from beginners to seasoned chefs. The page also features a section to showcase team members, including sample bios and images, creating a professional and friendly identity for the application.
+
+All styling is implemented using Tailwind CSS, a utility-first framework that ensures responsive design across devices. The layout adjusts fluidly for mobile, tablet, and desktop views. A mobile-friendly hamburger menu is also included, which toggles navigation links on smaller screens. This menu is controlled via vanilla JavaScript to show and hide navigation links when users tap the hamburger icon, and it automatically closes when users click outside the menu or select a link.
+
+The application logic is written in vanilla JavaScript using modern ES6 syntax. It includes asynchronous data fetching using fetch with async/await, dynamic DOM manipulation, and error handling. Helper functions are included for toggling loading states, displaying error messages, and parsing API responses into well-formatted HTML elements.
+
+RecipeFinder currently includes basic pages such as the homepage, categories page, about page, and a custom 404 error page for broken or undefined routes. The entire application is built with static HTML, CSS, and JavaScript files, which means it can be hosted on any platform that supports static sites, such as GitHub Pages, Netlify, Vercel, or Firebase Hosting, without requiring a backend server.
+
+The project is ideal for beginner to intermediate developers who want to improve their front-end skills, work with APIs, and create user-friendly web apps. It can be further enhanced with features such as user favorites (using localStorage), dark mode toggle, meal pagination, search history, and offline capabilities using service workers.
+
+In conclusion, RecipeFinder is a well-rounded, elegant, and extendable project that demonstrates key web development principles including responsive design, API integration, UI/UX best practices, and client-side logic. It’s a great example of how modern web technologies can come together to create a meaningful and enjoyable digital experience for users around the world.
