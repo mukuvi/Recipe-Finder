@@ -2,21 +2,6 @@
 
 **RecipeFinder** is a responsive and interactive web application that helps users search, explore and view recipes from around the world using [TheMealDB API](https://www.themealdb.com/api.php). Whether you’re looking for a specific dish or just want to discover something new, RecipeFinder provides a beautiful and easy-to-use interface for all types of food lovers.
 
----
-
-## Features
-
-- **Search Recipes** – Find meals by name or ingredient.
-- **Random Recipe Generator** – Let the app surprise you with a random meal.
-- **Recipe Details** – View ingredients, instructions, and a cooking video.
-- **Categories Page** – Explore meals grouped by category.
-- **About Page** – Learn more about the mission and creators of RecipeFinder.
-- **Mobile Responsive** – Works seamlessly on phones, tablets, and desktops.
-- **Hamburger Menu** – Optimized mobile navigation menu.
-- **404 Page** – Custom error page for non-existing routes.
-
----
-
 ## Tech Stack
 
 - **HTML5** – Structure
@@ -24,9 +9,6 @@
 - **JavaScript (ES6)** – Logic, interactivity, and API calls
 - **Font Awesome** – Icons and UI enhancements
 - **TheMealDB API** – Recipe and category data
-
----
-
 
 ## API Endpoints Used
 
