@@ -4,20 +4,20 @@
 
 ---
 
-## 📌 Features
+## Features
 
-- 🔍 **Search Recipes** – Find meals by name or ingredient.
-- 🎲 **Random Recipe Generator** – Let the app surprise you with a random meal.
-- 📄 **Recipe Details** – View ingredients, instructions, and a cooking video.
-- 🗂️ **Categories Page** – Explore meals grouped by category.
-- 👨‍🍳 **About Page** – Learn more about the mission and creators of RecipeFinder.
-- 📱 **Mobile Responsive** – Works seamlessly on phones, tablets, and desktops.
-- 🍔 **Hamburger Menu** – Optimized mobile navigation menu.
-- 🚫 **404 Page** – Custom error page for non-existing routes.
+- **Search Recipes** – Find meals by name or ingredient.
+- **Random Recipe Generator** – Let the app surprise you with a random meal.
+- **Recipe Details** – View ingredients, instructions, and a cooking video.
+- **Categories Page** – Explore meals grouped by category.
+- **About Page** – Learn more about the mission and creators of RecipeFinder.
+- **Mobile Responsive** – Works seamlessly on phones, tablets, and desktops.
+- **Hamburger Menu** – Optimized mobile navigation menu.
+- **404 Page** – Custom error page for non-existing routes.
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 - **HTML5** – Structure
 - **Tailwind CSS** – Styling and responsiveness
@@ -27,19 +27,8 @@
 
 ---
 
-## 🧠 Pages Overview
 
-| File              | Description                                       |
-| ----------------- | ------------------------------------------------- |
-| `index.html`      | Main page with search, random recipe, and results |
-| `categories.html` | Lists all meal categories dynamically             |
-| `about.html`      | Introduces the app’s mission and team             |
-| `404.html`        | Custom error page                                 |
-| `script.js`       | Main JavaScript logic and API interactions        |
-
----
-
-## 🌐 API Endpoints Used
+## API Endpoints Used
 
 - **Search Recipes**:  
   `https://www.themealdb.com/api/json/v1/1/search.php?s=`
