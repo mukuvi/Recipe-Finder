@@ -1,4 +1,4 @@
-# 🍽️ RecipeFinder
+# RecipeFinder
 
 **RecipeFinder** is a responsive and interactive web application that helps users search, explore and view recipes from around the world using [TheMealDB API](https://www.themealdb.com/api.php). Whether you’re looking for a specific dish or just want to discover something new, RecipeFinder provides a beautiful and easy-to-use interface for all types of food lovers.
 
@@ -26,7 +26,7 @@
 
 ---
 
-## 🛠️ How to Run Locally
+## How to Run Locally
 
 1. Clone or download the repository:
    ```bash
