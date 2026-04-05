@@ -23,10 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-bg-main/80 backdrop-blur">
       <div className="h-1 w-full bg-primary" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-bg-main">
-            RF
-          </span>
+        <Link href="/" className="flex items-center">
           <span className="font-display text-base tracking-tight text-text-main">
             RecipeFinder
           </span>

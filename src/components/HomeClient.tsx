@@ -228,9 +228,6 @@ export function HomeClient() {
               exit={{ opacity: 0 }}
               className="rounded-2xl border border-border bg-bg-secondary p-10 text-center shadow-sm"
             >
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-bg-main text-primary">
-                <span className="text-sm font-semibold">RF</span>
-              </div>
               <h2 className="font-display mt-4 text-lg tracking-tight">Search for recipes</h2>
               <p className="mt-2 text-sm text-text-muted">
                 Start with a keyword, or jump into categories for ideas.
