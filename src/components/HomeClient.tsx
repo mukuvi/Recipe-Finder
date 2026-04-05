@@ -13,6 +13,15 @@ type SearchState =
   | { type: 'error'; message: string }
   | { type: 'results'; meals: MealSummary[] };
 
+const quickCategories = [
+  'Beef',
+  'Chicken',
+  'Seafood',
+  'Dessert',
+  'Vegetarian',
+  'Pasta',
+] as const;
+
 export function HomeClient() {
   const router = useRouter();
   const [query, setQuery] = React.useState('');
@@ -29,6 +38,20 @@ export function HomeClient() {
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(q)}`
     );
     if (!res.ok) throw new Error('MealDB search failed');
+    return (await res.json()) as { meals: MealSummary[] | null };
+  }
+
+  async function fetchCategory(c: string) {
+    const res = await fetch(`/api/mealdb/category?c=${encodeURIComponent(c)}`);
+    if (!res.ok) throw new Error('Category route failed');
+    return (await res.json()) as { meals: MealSummary[] | null };
+  }
+
+  async function fetchCategoryFallback(c: string) {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(c)}`
+    );
+    if (!res.ok) throw new Error('MealDB category failed');
     return (await res.json()) as { meals: MealSummary[] | null };
   }
 
@@ -51,6 +74,25 @@ export function HomeClient() {
         setState({
           type: 'error',
           message: 'Failed to fetch recipes. Please try again later.',
+        });
+      }
+    }
+  }
+
+  async function runCategorySearch(category: string) {
+    setQuery(category);
+    setState({ type: 'loading' });
+    try {
+      const data = await fetchCategory(category);
+      setState({ type: 'results', meals: data.meals ?? [] });
+    } catch {
+      try {
+        const data = await fetchCategoryFallback(category);
+        setState({ type: 'results', meals: data.meals ?? [] });
+      } catch {
+        setState({
+          type: 'error',
+          message: 'Failed to load that category. Please try again later.',
         });
       }
     }
@@ -127,6 +169,24 @@ export function HomeClient() {
               Surprise me
             </button>
           </form>
+        </div>
+
+        <div className="mt-4">
+          <div className="text-xs font-medium text-text-muted">
+            Categories
+          </div>
+          <div className="mt-2 flex flex-wrap justify-center gap-2">
+            {quickCategories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => runCategorySearch(category)}
+                className="rounded-full border border-border bg-bg-main px-3 py-1.5 text-sm font-medium text-text-main shadow-sm hover:bg-bg-secondary focus:outline-none focus:ring-4 focus:ring-accent/30"
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
