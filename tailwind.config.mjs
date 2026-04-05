@@ -1,7 +1,6 @@
 import typography from '@tailwindcss/typography';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
 const config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
