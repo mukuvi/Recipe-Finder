@@ -1,12 +1,17 @@
 import type { Metadata } from 'next';
-import { Bebas_Neue, Inter } from 'next/font/google';
+import { Bebas_Neue, Poppins } from 'next/font/google';
 import './globals.css';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import Providers from './providers';
 
-const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
+const fontSans = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-sans',
+  display: 'swap',
+});
 const fontDisplay = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-display', display: 'swap' });
 
 export const metadata: Metadata = {

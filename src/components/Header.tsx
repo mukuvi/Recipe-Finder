@@ -24,22 +24,23 @@ export function Header() {
       <div className="h-1 w-full bg-primary" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center">
-          <span className="font-display text-lg tracking-tight text-text-main">
+          <span className="font-display text-xl tracking-tight text-text-main sm:text-2xl">
             RecipeFinder
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? 'page' : undefined}
                 className={
                   active
-                    ? 'text-sm font-semibold text-primary'
-                    : 'text-sm font-medium text-text-muted hover:text-text-main'
+                    ? 'rounded-full bg-primary px-3 py-1.5 text-sm font-semibold text-bg-main transition-colors'
+                    : 'rounded-full px-3 py-1.5 text-sm font-medium text-text-muted transition-colors hover:bg-bg-secondary hover:text-text-main'
                 }
               >
                 {item.label}
@@ -50,7 +51,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-bg-secondary text-text-main shadow-sm hover:bg-bg-main md:hidden"
+          className="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-bg-secondary px-3 text-text-main shadow-sm transition-colors hover:bg-bg-main md:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -76,10 +77,11 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      aria-current={active ? 'page' : undefined}
                       className={
                         active
-                          ? 'rounded-xl bg-bg-secondary px-3 py-2 text-sm font-semibold text-primary'
-                          : 'rounded-xl px-3 py-2 text-sm font-medium text-text-muted hover:bg-bg-secondary hover:text-text-main'
+                          ? 'rounded-xl bg-primary px-3 py-2 text-sm font-semibold text-bg-main transition-colors'
+                          : 'rounded-xl px-3 py-2 text-sm font-medium text-text-muted transition-colors hover:bg-bg-secondary hover:text-text-main'
                       }
                     >
                       {item.label}
