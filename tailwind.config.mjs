@@ -1,8 +1,8 @@
-import type { Config } from 'tailwindcss';
 import typography from '@tailwindcss/typography';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-export default {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
@@ -33,4 +33,6 @@ export default {
     },
   },
   plugins: [typography],
-} satisfies Config;
+};
+
+export default config;
