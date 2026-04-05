@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+:root {
+  --bg-main: #fff8f0;
+  --bg-secondary: #f3ede4;
+  --primary: #c96a3d;
+  --primary-hover: #b55a30;
+  --secondary: #8a9a5b;
+  --secondary-hover: #74864c;
+  --accent: #e9c46a;
+  --text-main: #2f2f2f;
+  --text-muted: #6b6b6b;
+  --border: #e5ded3;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}

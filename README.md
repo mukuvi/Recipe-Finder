@@ -4,10 +4,10 @@
 
 ## Tech Stack
 
-- **HTML5** – Structure
+- **Next.js (App Router)** – Modern React framework
 - **Tailwind CSS** – Styling and responsiveness
-- **JavaScript (ES6)** – Logic, interactivity, and API calls
-- **Font Awesome** – Icons and UI enhancements
+- **Framer Motion** – Subtle, smooth animations
+- **TypeScript** – Safer, more maintainable code
 - **TheMealDB API** – Recipe and category data
 
 ## API Endpoints Used
@@ -24,11 +24,29 @@
 - **Categories**:  
   `https://www.themealdb.com/api/json/v1/1/categories.php`
 
+- **Filter by Category**:
+  `https://www.themealdb.com/api/json/v1/1/filter.php?c=`
+
 ---
 
 ## How to Run Locally
 
-1. Clone or download the repository:
-   ```bash
-   git clone https://github.com/yourusername/recipefinder.git
-   ```
+1. Install dependencies:
+  ```bash
+  npm install
+  ```
+
+2. Start the dev server:
+  ```bash
+  npm run dev
+  ```
+
+3. Open:
+  `http://localhost:3000`
+
+## Features
+
+- Recipe search by name
+- Random meal generation ("Surprise me")
+- Category browsing with meal lists
+- Detailed recipe view (ingredients, instructions, optional YouTube embed)
