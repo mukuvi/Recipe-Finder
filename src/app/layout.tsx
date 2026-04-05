@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     template: '%s | RecipeFinder',
   },
   description: 'Search and discover delicious meals from around the world.',
+  icons: {
+    icon: [
+      {
+        url: '/images/recipe%20finder.jpg',
+        type: 'image/jpeg',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
