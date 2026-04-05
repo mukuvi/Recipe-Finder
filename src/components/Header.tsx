@@ -21,6 +21,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg-main/80 backdrop-blur">
+      <div className="h-1 w-full bg-primary" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-bg-main">
@@ -54,8 +55,6 @@ export function Header() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-bg-secondary text-text-main shadow-sm hover:bg-bg-main md:hidden"
           aria-label="Toggle menu"
-          aria-expanded={open ? 'true' : 'false'}
-          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="text-sm font-medium">Menu</span>
