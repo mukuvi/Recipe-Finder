@@ -24,7 +24,7 @@ export function Header() {
       <div className="h-1 w-full bg-primary" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4">
         <Link href="/" className="flex items-center">
-          <span className="font-display text-base tracking-tight text-text-main">
+          <span className="font-display text-lg tracking-tight text-text-main">
             RecipeFinder
           </span>
         </Link>
