@@ -6,6 +6,8 @@ import { RecipeCard } from '@/components/RecipeCard';
 import { filterMealsByCategory, listCategories } from '@/lib/mealdb';
 import { toSlug } from '@/lib/slug';
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: Promise<{ category: string }>;
 };

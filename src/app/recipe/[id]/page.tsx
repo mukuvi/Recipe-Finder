@@ -7,6 +7,8 @@ import { getMealById } from '@/lib/mealdb';
 import { toSlug } from '@/lib/slug';
 import { getYouTubeEmbedUrl, getYouTubeUrl } from '@/lib/youtube';
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: Promise<{ id: string }>;
 };
