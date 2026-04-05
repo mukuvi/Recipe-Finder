@@ -2,12 +2,50 @@ import type { MealByCategory, MealCategory, MealDetail, MealSummary } from './me
 
 const API_BASE = 'https://www.themealdb.com/api/json/v1/1';
 
-async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, init);
-  if (!res.ok) {
-    throw new Error(`MealDB request failed (${res.status})`);
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchWithTimeout(url: string, init: RequestInit | undefined, timeoutMs: number) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, {
+      ...init,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
   }
-  return (await res.json()) as T;
+}
+
+async function getJsonWithRetry<T>(url: string, init?: RequestInit): Promise<T> {
+  const method = (init?.method ?? 'GET').toUpperCase();
+  const maxAttempts = method === 'GET' ? 3 : 1;
+
+  let lastError: unknown = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const res = await fetchWithTimeout(url, init, 8000);
+      if (!res.ok) {
+        throw new Error(`MealDB request failed (${res.status})`);
+      }
+      return (await res.json()) as T;
+    } catch (err) {
+      lastError = err;
+      if (attempt < maxAttempts) {
+        await sleep(250 * attempt);
+        continue;
+      }
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('MealDB request failed');
+}
+
+async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
+  return getJsonWithRetry<T>(url, init);
 }
 
 export async function searchMeals(query: string): Promise<MealSummary[]> {
@@ -53,7 +91,9 @@ export async function filterMealsByCategory(category: string): Promise<MealByCat
   if (!c) return [];
   const data = await getJson<{ meals: MealByCategory[] | null }>(
     `${API_BASE}/filter.php?c=${encodeURIComponent(c)}`,
-    { cache: 'no-store' }
+    {
+      next: { revalidate: 60 * 30 },
+    }
   );
   return data.meals ?? [];
 }
