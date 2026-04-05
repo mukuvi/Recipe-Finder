@@ -26,7 +26,7 @@ export function RecipeCard({ meal }: { meal: MealSummary }) {
       </div>
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="text-base font-semibold leading-snug">{meal.strMeal}</h3>
+          <h3 className="font-display text-base leading-snug tracking-tight">{meal.strMeal}</h3>
         </div>
         <div className="mt-4">
           <Link

@@ -3,16 +3,16 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --bg-main: #fff8f0;
-  --bg-secondary: #f3ede4;
-  --primary: #c96a3d;
-  --primary-hover: #b55a30;
-  --secondary: #8a9a5b;
-  --secondary-hover: #74864c;
-  --accent: #e9c46a;
-  --text-main: #2f2f2f;
-  --text-muted: #6b6b6b;
-  --border: #e5ded3;
+  --bg-main: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --primary: #e4002b;
+  --primary-hover: #c80026;
+  --secondary: #111111;
+  --secondary-hover: #000000;
+  --accent: #ffb3c0;
+  --text-main: #111111;
+  --text-muted: #525252;
+  --border: #e5e5e5;
 }
 
 html {

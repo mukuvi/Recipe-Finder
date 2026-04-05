@@ -3,10 +3,10 @@ import Link from 'next/link';
 export default function NotFound() {
   return (
     <div className="mx-auto flex min-h-[70dvh] w-full max-w-6xl flex-col items-center justify-center px-4 py-12 text-center">
-      <div className="text-6xl font-semibold tracking-tight text-primary sm:text-8xl">
+      <div className="font-display text-6xl tracking-tight text-primary sm:text-8xl">
         404
       </div>
-      <h1 className="mt-4 text-balance text-2xl font-semibold sm:text-3xl">
+      <h1 className="font-display mt-4 text-balance text-2xl tracking-tight sm:text-3xl">
         Page not found
       </h1>
       <p className="mt-3 max-w-xl text-pretty text-text-muted">

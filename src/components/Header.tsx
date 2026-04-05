@@ -26,7 +26,7 @@ export function Header() {
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-bg-main">
             RF
           </span>
-          <span className="text-base font-semibold tracking-tight text-text-main">
+          <span className="font-display text-base tracking-tight text-text-main">
             RecipeFinder
           </span>
         </Link>

@@ -94,13 +94,13 @@ export default async function Page({ params }: Props) {
             ) : null}
           </div>
 
-          <h1 className="mt-4 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="font-display mt-4 text-balance text-3xl tracking-tight sm:text-4xl">
             {meal.strMeal}
           </h1>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             <section>
-              <h2 className="text-lg font-semibold">Ingredients</h2>
+              <h2 className="font-display text-lg tracking-tight">Ingredients</h2>
               <ul className="mt-4 space-y-2 text-text-main">
                 {ingredients.map((item) => (
                   <li key={item} className="flex gap-2">
@@ -112,7 +112,7 @@ export default async function Page({ params }: Props) {
             </section>
 
             <section>
-              <h2 className="text-lg font-semibold">Instructions</h2>
+              <h2 className="font-display text-lg tracking-tight">Instructions</h2>
               <div className="prose prose-slate mt-4 max-w-none">
                 {meal.strInstructions
                   .split('\n')

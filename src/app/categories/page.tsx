@@ -18,7 +18,7 @@ export default async function Page() {
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="font-display text-3xl tracking-tight sm:text-4xl">
             Categories
           </h1>
           <p className="mt-2 max-w-2xl text-text-muted">

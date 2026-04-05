@@ -1,10 +1,15 @@
 import type { Config } from 'tailwindcss';
 import typography from '@tailwindcss/typography';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        display: ['var(--font-display)', 'var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         bg: {
           main: 'var(--bg-main)',

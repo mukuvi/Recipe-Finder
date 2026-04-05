@@ -35,7 +35,7 @@ export default async function Page({ params }: Props) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="text-sm font-medium text-secondary">Category</div>
-          <h1 className="mt-1 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="font-display mt-1 text-3xl tracking-tight sm:text-4xl">
             {canonical.strCategory}
           </h1>
           <p className="mt-2 max-w-2xl text-text-muted">

@@ -87,7 +87,7 @@ export function HomeClient() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
       <section className="mx-auto max-w-3xl text-center">
-        <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="font-display text-balance text-4xl tracking-tight sm:text-5xl">
           Discover recipes you’ll actually want to cook
         </h1>
         <p className="mt-4 text-pretty text-lg text-text-muted">
@@ -153,10 +153,10 @@ export function HomeClient() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              className="rounded-2xl border border-rose-200 bg-rose-50 p-6 text-center text-rose-900"
+              className="rounded-2xl border border-primary/30 bg-bg-secondary p-6 text-center text-text-main shadow-sm"
             >
-              <div className="text-sm font-semibold">Something went wrong</div>
-              <p className="mt-2 text-sm text-rose-800">{state.message}</p>
+              <div className="font-display text-sm tracking-tight">Something went wrong</div>
+              <p className="mt-2 text-sm text-text-muted">{state.message}</p>
             </motion.div>
           ) : null}
 
@@ -171,7 +171,7 @@ export function HomeClient() {
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-bg-main text-primary">
                 <span className="text-sm font-semibold">RF</span>
               </div>
-              <h2 className="mt-4 text-lg font-semibold">Search for recipes</h2>
+              <h2 className="font-display mt-4 text-lg tracking-tight">Search for recipes</h2>
               <p className="mt-2 text-sm text-text-muted">
                 Start with a keyword, or jump into categories for ideas.
               </p>
@@ -187,7 +187,7 @@ export function HomeClient() {
             >
               {state.meals.length === 0 ? (
                 <div className="rounded-2xl border border-border bg-bg-secondary p-10 text-center shadow-sm">
-                  <h2 className="text-lg font-semibold">No recipes found</h2>
+                  <h2 className="font-display text-lg tracking-tight">No recipes found</h2>
                   <p className="mt-2 text-sm text-text-muted">
                     Try a different search term.
                   </p>

@@ -27,7 +27,7 @@ export default function Page() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
       <div className="mx-auto max-w-3xl text-center">
-        <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="font-display text-balance text-3xl tracking-tight sm:text-4xl">
           About RecipeFinder
         </h1>
         <p className="mt-4 text-pretty text-text-muted">
@@ -39,7 +39,7 @@ export default function Page() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         <section className="rounded-2xl border border-border bg-bg-secondary p-6 shadow-sm">
-          <h2 className="text-lg font-semibold">Our Mission</h2>
+          <h2 className="font-display text-lg tracking-tight">Our Mission</h2>
           <p className="mt-3 leading-relaxed text-text-muted">
             Make cooking feel approachable and inspiring by pairing a calm,
             modern interface with a deep catalog of meal ideas.
@@ -50,7 +50,7 @@ export default function Page() {
         </section>
 
         <section className="rounded-2xl border border-border bg-bg-secondary p-6 shadow-sm">
-          <h2 className="text-lg font-semibold">What You Can Do</h2>
+          <h2 className="font-display text-lg tracking-tight">What You Can Do</h2>
           <ul className="mt-3 space-y-2 text-text-muted">
             <li>Search recipes by name</li>
             <li>Generate a random meal</li>
@@ -61,7 +61,7 @@ export default function Page() {
       </div>
 
       <section className="mt-12">
-        <h2 className="text-center text-2xl font-semibold tracking-tight">
+        <h2 className="font-display text-center text-2xl tracking-tight">
           Meet the Team
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
