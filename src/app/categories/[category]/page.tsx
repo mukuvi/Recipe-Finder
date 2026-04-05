@@ -14,21 +14,44 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
-  const categories = await listCategories();
-  const canonical = categories.find((c) => toSlug(c.strCategory) === category);
-  const name = canonical?.strCategory ?? category;
-  return {
-    title: name,
-  };
+  try {
+    const categories = await listCategories();
+    const canonical = categories.find((c) => toSlug(c.strCategory) === category);
+    const name = canonical?.strCategory ?? category;
+    return {
+      title: name,
+    };
+  } catch {
+    return {
+      title: category,
+    };
+  }
 }
 
 export default async function Page({ params }: Props) {
   const { category } = await params;
-  const categories = await listCategories();
-  const canonical = categories.find((c) => toSlug(c.strCategory) === category);
-  if (!canonical) notFound();
+  let categories = [] as Awaited<ReturnType<typeof listCategories>>;
+  let loadError: string | null = null;
 
-  const meals = await filterMealsByCategory(canonical.strCategory);
+  try {
+    categories = await listCategories();
+  } catch {
+    loadError = 'Unable to load categories right now. Please try again.';
+  }
+
+  const canonical = categories.find((c) => toSlug(c.strCategory) === category);
+  if (!loadError && !canonical) notFound();
+
+  const categoryTitle = canonical?.strCategory ?? category;
+
+  let meals = [] as Awaited<ReturnType<typeof filterMealsByCategory>>;
+  if (canonical) {
+    try {
+      meals = await filterMealsByCategory(canonical.strCategory);
+    } catch {
+      loadError = 'Unable to load meals right now. Please try again.';
+    }
+  }
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
@@ -36,7 +59,7 @@ export default async function Page({ params }: Props) {
         <div>
           <div className="text-sm font-medium text-secondary">Category</div>
           <h1 className="font-display mt-1 text-3xl tracking-tight sm:text-4xl">
-            {canonical.strCategory}
+            {categoryTitle}
           </h1>
           <p className="mt-2 max-w-2xl text-text-muted">
             Explore meals in this category.
@@ -50,11 +73,20 @@ export default async function Page({ params }: Props) {
         </Link>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {meals.map((meal) => (
-          <RecipeCard key={meal.idMeal} meal={meal} />
-        ))}
-      </div>
+      {loadError ? (
+        <div className="mt-8 rounded-2xl border border-primary/30 bg-bg-secondary p-5 text-text-main">
+          <div className="text-sm font-medium text-primary">Temporary error</div>
+          <p className="mt-1 text-sm text-text-muted">{loadError}</p>
+        </div>
+      ) : null}
+
+      {!loadError ? (
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {meals.map((meal) => (
+            <RecipeCard key={meal.idMeal} meal={meal} />
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -15,7 +15,12 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const meal = await getMealById(id);
+  let meal: Awaited<ReturnType<typeof getMealById>> | null = null;
+  try {
+    meal = await getMealById(id);
+  } catch {
+    meal = null;
+  }
 
   if (!meal) {
     return { title: 'Recipe' };
@@ -29,7 +34,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { id } = await params;
-  const meal = await getMealById(id);
+  let meal: Awaited<ReturnType<typeof getMealById>> | null = null;
+  let loadError: string | null = null;
+
+  try {
+    meal = await getMealById(id);
+  } catch {
+    loadError = 'Unable to load this recipe right now. Please try again.';
+  }
+
+  if (loadError) {
+    return (
+      <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
+        <Link
+          href="/"
+          className="inline-flex w-fit items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover"
+        >
+          Back to search
+        </Link>
+
+        <div className="mt-6 rounded-2xl border border-primary/30 bg-bg-secondary p-6 text-text-main">
+          <div className="text-sm font-medium text-primary">Temporary error</div>
+          <p className="mt-1 text-sm text-text-muted">{loadError}</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!meal) {
     notFound();
@@ -134,13 +164,13 @@ export default async function Page({ params }: Props) {
                     href={youtubeUrl}
                     target="_blank"
                     rel="noreferrer"
-                      className="inline-flex w-fit items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-bg-main shadow-sm hover:bg-primary-hover"
+                    className="inline-flex w-fit items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-bg-main shadow-sm hover:bg-primary-hover"
                   >
                     Open on YouTube
                   </a>
                 ) : null}
               </div>
-                <div className="mt-4 overflow-hidden rounded-2xl border border-border bg-bg-main">
+              <div className="mt-4 overflow-hidden rounded-2xl border border-border bg-bg-main">
                 <div className="relative aspect-video">
                   <iframe
                     src={embedUrl}

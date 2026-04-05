@@ -12,7 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const categories = await listCategories();
+  let categories = [] as Awaited<ReturnType<typeof listCategories>>;
+  let loadError: string | null = null;
+
+  try {
+    categories = await listCategories();
+  } catch {
+    loadError = 'Unable to load categories right now. Please try again.';
+  }
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
@@ -32,6 +39,13 @@ export default async function Page() {
           Back to search
         </Link>
       </div>
+
+      {loadError ? (
+        <div className="mt-8 rounded-2xl border border-primary/30 bg-bg-secondary p-5 text-text-main">
+          <div className="text-sm font-medium text-primary">Temporary error</div>
+          <p className="mt-1 text-sm text-text-muted">{loadError}</p>
+        </div>
+      ) : null}
 
       <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {categories.map((category) => (

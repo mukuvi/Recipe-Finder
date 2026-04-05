@@ -54,7 +54,7 @@ export function Header() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-bg-secondary text-text-main shadow-sm hover:bg-bg-main md:hidden"
           aria-label="Toggle menu"
-          aria-expanded={open}
+          aria-expanded={open ? 'true' : 'false'}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
