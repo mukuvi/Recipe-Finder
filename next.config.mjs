@@ -1,4 +1,5 @@
 const nextConfig = {
+  typedRoutes: false,
   images: {
     remotePatterns: [
       {
